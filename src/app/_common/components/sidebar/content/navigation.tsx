@@ -3,6 +3,7 @@
 import {
   FileText,
   HomeIcon,
+  Paintbrush,
   SquareDashedMousePointer,
   Workflow,
 } from 'lucide-react'
@@ -23,19 +24,9 @@ const navigationItems = [
     href: '/app/dashboard',
   },
   {
-    icon: SquareDashedMousePointer,
-    label: 'Node Builder',
-    href: '/app/node-builder',
-  },
-  {
-    icon: Workflow,
-    label: 'Workflows',
-    href: '/app/workflows',
-  },
-  {
-    icon: FileText,
-    label: 'Quotes',
-    href: '/app/quotes',
+    icon: Paintbrush,
+    label: 'Recent Art',
+    href: '/app/recent-art',
   },
 ] as const
 

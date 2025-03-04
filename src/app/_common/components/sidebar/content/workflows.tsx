@@ -1,6 +1,6 @@
 'use client'
 
-import { ChevronDown, Workflow } from 'lucide-react'
+import { ChevronDown, Paintbrush, Workflow } from 'lucide-react'
 import { useEffect, useState } from 'react'
 import { useSidebarStore } from '~/app/_common/stores/sidebar'
 import {
@@ -16,7 +16,7 @@ import {
 } from '~/components/ui/sidebar'
 // import { api } from '~/trpc/react'
 
-type WorkflowMenuItem = {
+type ArtMenuItem = {
   id: string
   name: string
   updatedAt: Date
@@ -24,27 +24,13 @@ type WorkflowMenuItem = {
   status: 'active' | 'completed' | 'draft'
 }
 
-const MOCK_WORKFLOWS: WorkflowMenuItem[] = [
+const MOCK_ART: ArtMenuItem[] = [
   {
     id: '1',
-    name: 'Surface Plasmon Resonance',
+    name: 'Dads Playing Chess',
     updatedAt: new Date(),
     createdAt: new Date(),
     status: 'active',
-  },
-  {
-    id: '2',
-    name: 'HPLC Workflow',
-    updatedAt: new Date(),
-    createdAt: new Date(),
-    status: 'completed',
-  },
-  {
-    id: '3',
-    name: 'Protein Purification',
-    updatedAt: new Date(),
-    createdAt: new Date(),
-    status: 'draft',
   },
 ]
 
@@ -53,11 +39,11 @@ const RECENT_WORKFLOWS_LIMIT = 3
 export function WorkflowMenu() {
   // Mock implementation
   const [isLoading, setIsLoading] = useState(true)
-  const [recentWorkflows, setRecentWorkflows] = useState<WorkflowMenuItem[]>([])
+  const [recentArt, setRecentArt] = useState<ArtMenuItem[]>([])
   const isCollapsed = useSidebarStore((state) => state.isCollapsed)
   useEffect(() => {
     const timer = setTimeout(() => {
-      setRecentWorkflows(MOCK_WORKFLOWS)
+      setRecentArt(MOCK_ART)
       setIsLoading(false)
     }, 1000)
 
@@ -85,8 +71,8 @@ export function WorkflowMenu() {
         <SidebarMenuItem>
           <CollapsibleTrigger className="flex w-full items-center justify-between py-2">
             <div className="flex items-center gap-2">
-              <Workflow className="h-4 w-4" />
-              <span className="text-sm font-light">Recent Workflows</span>
+              <Paintbrush className="h-4 w-4" />
+              <span className="text-sm font-light">Recent Art</span>
             </div>
             <ChevronDown className="h-4 w-4 transition-transform duration-200 group-data-[state=open]/collapsible:rotate-180" />
           </CollapsibleTrigger>
@@ -96,17 +82,17 @@ export function WorkflowMenu() {
                 <div className="px-2 py-1 text-xs text-muted-foreground">
                   Loading...
                 </div>
-              ) : recentWorkflows?.length ? (
-                recentWorkflows.map((workflow) => (
-                  <SidebarMenuSubItem key={workflow.id} className="w-full">
+              ) : recentArt?.length ? (
+                recentArt.map((art) => (
+                  <SidebarMenuSubItem key={art.id} className="w-full">
                     <button className="w-full text-left text-xs hover:bg-muted/50 py-1.5 px-2 rounded-sm">
-                      {workflow.name}
+                      {art.name}
                     </button>
                   </SidebarMenuSubItem>
                 ))
               ) : (
                 <div className="px-2 py-1 text-xs text-muted-foreground">
-                  No recent workflows
+                  No recent art
                 </div>
               )}
             </SidebarMenuSub>
