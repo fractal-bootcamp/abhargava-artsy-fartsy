@@ -69,29 +69,29 @@ export function WorkflowMenu() {
     <SidebarMenu className="pl-2">
       <Collapsible defaultOpen className="group/collapsible">
         <SidebarMenuItem>
-          <CollapsibleTrigger className="flex w-full items-center justify-between py-2">
+          <CollapsibleTrigger className="flex w-full items-center justify-between py-2 retro-terminal-border rounded px-2">
             <div className="flex items-center gap-2">
-              <Paintbrush className="h-4 w-4" />
-              <span className="text-sm font-light">Recent Art</span>
+              <Paintbrush className="h-4 w-4 retro-terminal-accent" />
+              <span className="text-sm font-mono">Recent Art</span>
             </div>
             <ChevronDown className="h-4 w-4 transition-transform duration-200 group-data-[state=open]/collapsible:rotate-180" />
           </CollapsibleTrigger>
           <CollapsibleContent>
-            <SidebarMenuSub>
+            <SidebarMenuSub className="mt-1 border-l border-dotted border-[#00ff00]">
               {isLoading ? (
-                <div className="px-2 py-1 text-xs text-muted-foreground">
+                <div className="px-2 py-1 text-xs text-muted-foreground font-mono">
                   Loading...
                 </div>
               ) : recentArt?.length ? (
                 recentArt.map((art) => (
                   <SidebarMenuSubItem key={art.id} className="w-full">
-                    <button className="w-full text-left text-xs hover:bg-muted/50 py-1.5 px-2 rounded-sm">
+                    <button className="w-full text-left text-xs hover:bg-[#003300] py-1.5 px-2 rounded-sm font-mono retro-terminal-border">
                       {art.name}
                     </button>
                   </SidebarMenuSubItem>
                 ))
               ) : (
-                <div className="px-2 py-1 text-xs text-muted-foreground">
+                <div className="px-2 py-1 text-xs text-muted-foreground font-mono">
                   No recent art
                 </div>
               )}

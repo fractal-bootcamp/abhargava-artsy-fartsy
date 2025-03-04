@@ -18,20 +18,22 @@ export function AppSidebar() {
       variant="floating"
       side="left"
       collapsible="icon"
-      className="group"
+      className="group retro-terminal"
     >
-      <SidebarHeader>
+      <SidebarHeader className="retro-terminal-header">
         <SidebarOrgSwitcher />
       </SidebarHeader>
       <SidebarContent>
         <Navigation />
-        <SidebarGroup>
-          <SidebarGroupLabel>Recent Art</SidebarGroupLabel>
+        <SidebarGroup className="retro-terminal-group mt-4 p-2">
+          <SidebarGroupLabel className="retro-terminal-accent retro-terminal-group-label">
+            Recent Art
+          </SidebarGroupLabel>
           <WorkflowMenu />
         </SidebarGroup>
       </SidebarContent>
-      <SidebarSeparator />
-      <SidebarFooter>
+      <SidebarSeparator className="retro-terminal-separator" />
+      <SidebarFooter className="retro-terminal-footer">
         <SidebarUserFooter />
       </SidebarFooter>
     </Sidebar>
