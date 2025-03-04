@@ -2,7 +2,7 @@
   "lockfileVersion": 1,
   "workspaces": {
     "": {
-      "name": "cpq",
+      "name": "artsy-fartsy",
       "dependencies": {
         "@clerk/nextjs": "^6.12.0",
         "@radix-ui/react-collapsible": "^1.1.3",

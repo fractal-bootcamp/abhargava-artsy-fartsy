@@ -8,8 +8,8 @@ import { ThemeProvider } from '~/components/themes'
 import { TRPCReactProvider } from '~/trpc/react'
 
 export const metadata: Metadata = {
-  title: 'Bynd.Bio',
-  description: 'Bynd.Bio | AI Accelerated CPQ platform',
+  title: 'Artsy-Fartsy Project',
+  description: 'Artsy-Fartsy Project',
   icons: [{ rel: 'icon', url: '/favicon.ico' }],
 }
 
