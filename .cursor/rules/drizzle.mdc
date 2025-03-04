@@ -1,0 +1,60 @@
+---
+description: Best Practices for Drizzle ORM Relations
+globs: src/**/schema.ts
+---
+# Drizzle Relations Best Practices
+
+- Use Drizzle's relations API instead of SQL foreign key constraints
+  - More flexible and type-safe
+  - Better performance with Drizzle's query builder
+  - Easier to maintain and refactor
+
+## ✅ Do This
+
+```typescript
+// Define tables without SQL foreign key constraints
+export const users = pgTable('users', {
+id: serial('id').primaryKey(),
+name: text('name'),
+});
+export const posts = pgTable('posts', {
+id: serial('id').primaryKey(),
+userId: integer('user_id'),
+title: text('title'),
+});
+// Define relations separately using Drizzle's relations API
+export const usersRelations = relations(users, ({ many }) => ({
+posts: many(posts),
+}));
+export const postsRelations = relations(posts, ({ one }) => ({
+author: one(users, {
+fields: [posts.userId],
+references: [users.id],
+}),
+}));
+```
+
+## ❌ Avoid This
+
+```typescript
+// Don't use SQL foreign key constraints
+export const users = pgTable('users', {
+id: serial('id').primaryKey(),
+name: text('name'),
+});
+export const posts = pgTable('posts', {
+id: serial('id').primaryKey(),
+userId: integer('user_id').references(() => users.id), // Avoid SQL constraints
+title: text('title'),
+});
+```
+
+## Benefits
+
+1. **Type Safety**: Drizzle's relations API provides better TypeScript inference
+2. **Performance**: Optimized query generation for relation operations
+3. **Flexibility**: Easier to modify relations without database migrations
+4. **Maintainability**: Centralized relation definitions in code
+5. **Query Builder Integration**: Better integration with Drizzle's query builder features
+
+

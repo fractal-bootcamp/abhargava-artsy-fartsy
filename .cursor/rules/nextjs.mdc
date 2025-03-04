@@ -1,0 +1,45 @@
+---
+description: Best Practices for Next.js with App Router
+globs: src/**/*.(ts|tsx)
+---
+- Prioritize using server components (RSC) for performance, SEO, and data fetching
+  - Mark components as server components by default
+  - Only use 'use client' directive when necessary for interactivity
+  - Implement data fetching within server components using tRPC server caller
+
+- Use client components sparingly, only when interactivity is required
+  - Interactive forms (like seen in LatestPost component)
+  - Click handlers
+  - Browser APIs
+  - React hooks
+  - Client-side state management with React Query
+
+- Take advantage of Next.js file-based routing system for simplicity
+  - Organize pages under src/app/[feature]/page.tsx
+  - Use loading.tsx, error.tsx, and layout.tsx at appropriate directory levels
+  - Follow existing root layout pattern
+
+- Centralize shared layouts in `layout.tsx` for consistency across pages
+  - Place common UI elements in the root layout
+  - Create nested layouts for specific sections
+  - Share metadata configurations using Next.js Metadata API
+
+- Add `loading.tsx` to handle loading states for better UX
+  - Implement suspense boundaries
+  - Create meaningful loading skeletons
+  - Use React Suspense with tRPC's useSuspenseQuery
+
+- Implement custom error pages with `error.tsx` to handle errors gracefully
+  - Create error boundaries at appropriate levels
+  - Provide user-friendly error messages
+  - Follow tRPC error formatting pattern
+
+- Use API route handlers to manage backend logic within the app structure
+  - Place API routes in src/app/api/[endpoint]/route.ts
+  - Implement proper error handling and status codes
+  - Follow existing tRPC API route handler pattern
+
+- Optimize server-side rendering (SSR) and static site generation (SSG) for faster loading times
+  - Use tRPC's RSC integration for server-side data fetching
+  - Implement proper caching strategies with React Query
+  - Configure staleTime and other query options appropriately

@@ -1,0 +1,6 @@
+---
+description: Supabase Seeding and Database
+globs: *.sql, *.ts
+---
+- Use Supabase SDK for data fetching and querying
+- For each table created in the Drizzle Schema try to create a Seed for every user in an organization
