@@ -37,7 +37,7 @@
 ```mermaid
 graph TD
     %% Main Repository Structure
-    Root["CPQ Repository"] --> SRC["src/"]
+    Root["Artsy-Fartsy Repository"] --> SRC["src/"]
     Root --> Public["public/"]
     Root --> Supabase["supabase/"]
     Root --> Config["Configuration Files"]

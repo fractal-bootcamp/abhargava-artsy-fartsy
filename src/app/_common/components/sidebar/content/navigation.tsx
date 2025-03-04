@@ -3,6 +3,7 @@
 import {
   FileText,
   HomeIcon,
+  Paintbrush,
   SquareDashedMousePointer,
   Workflow,
 } from 'lucide-react'
@@ -23,19 +24,9 @@ const navigationItems = [
     href: '/app/dashboard',
   },
   {
-    icon: SquareDashedMousePointer,
-    label: 'Node Builder',
-    href: '/app/node-builder',
-  },
-  {
-    icon: Workflow,
-    label: 'Workflows',
-    href: '/app/workflows',
-  },
-  {
-    icon: FileText,
-    label: 'Quotes',
-    href: '/app/quotes',
+    icon: Paintbrush,
+    label: 'Recent Art',
+    href: '/app/recent-art',
   },
 ] as const
 
@@ -43,8 +34,10 @@ export function Navigation() {
   const pathname = usePathname()
 
   return (
-    <SidebarGroup>
-      <SidebarGroupLabel>Navigation</SidebarGroupLabel>
+    <SidebarGroup className="retro-terminal-group p-2">
+      <SidebarGroupLabel className="retro-terminal-accent retro-terminal-group-label">
+        Navigation
+      </SidebarGroupLabel>
       <SidebarMenu>
         <SidebarMenuItem>
           {navigationItems.map((item) => {
@@ -57,10 +50,11 @@ export function Navigation() {
                 asChild
                 isActive={isActive}
                 tooltip={item.label}
+                className={isActive ? 'retro-terminal-accent' : ''}
               >
-                <Link href={item.href}>
+                <Link href={item.href} className="retro-terminal-border">
                   <Icon className="h-4 w-4" />
-                  <span className="text-sm font-light">{item.label}</span>
+                  <span className="text-sm font-mono">{item.label}</span>
                 </Link>
               </SidebarMenuButton>
             )

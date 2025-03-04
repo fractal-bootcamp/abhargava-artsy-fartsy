@@ -6,10 +6,8 @@ import {
   SidebarGroupLabel,
   SidebarHeader,
   SidebarSeparator,
-  useSidebar,
 } from '~/components/ui/sidebar'
 import { Navigation } from './sidebar/content/navigation'
-import { QuoteMenu } from './sidebar/content/quotes'
 import { WorkflowMenu } from './sidebar/content/workflows'
 import { SidebarUserFooter } from './sidebar/footer/user-footer'
 import { SidebarOrgSwitcher } from './sidebar/header/organization-switcher'
@@ -20,24 +18,22 @@ export function AppSidebar() {
       variant="floating"
       side="left"
       collapsible="icon"
-      className="group"
+      className="group retro-terminal"
     >
-      <SidebarHeader>
+      <SidebarHeader className="retro-terminal-header">
         <SidebarOrgSwitcher />
       </SidebarHeader>
       <SidebarContent>
         <Navigation />
-        <SidebarGroup>
-          <SidebarGroupLabel>Workflows</SidebarGroupLabel>
+        <SidebarGroup className="retro-terminal-group mt-4 p-2">
+          <SidebarGroupLabel className="retro-terminal-accent retro-terminal-group-label">
+            Recent Art
+          </SidebarGroupLabel>
           <WorkflowMenu />
         </SidebarGroup>
-        <SidebarGroup>
-          <SidebarGroupLabel>Quotes</SidebarGroupLabel>
-          <QuoteMenu />
-        </SidebarGroup>
       </SidebarContent>
-      <SidebarSeparator />
-      <SidebarFooter>
+      <SidebarSeparator className="retro-terminal-separator" />
+      <SidebarFooter className="retro-terminal-footer">
         <SidebarUserFooter />
       </SidebarFooter>
     </Sidebar>

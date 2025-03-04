@@ -11,7 +11,7 @@ export function SidebarUserFooter() {
   return (
     <SignedIn>
       <button
-        className="flex items-center place-content-center gap-3 hover:bg-gray-100 rounded-md transition-colors"
+        className="flex items-center place-content-center gap-3 hover:bg-[#003300] rounded-md transition-colors p-2 retro-terminal-border w-full"
         onClick={() => {
           const userButtonElement = document.querySelector(
             '.cl-userButtonTrigger',
@@ -25,10 +25,10 @@ export function SidebarUserFooter() {
           <UserButton />
           {!isCollapsed && (
             <div className="flex flex-col items-start">
-              <p className="text-xs font-medium dark:text-white">
+              <p className="text-xs font-mono retro-terminal-accent">
                 {user?.firstName} {user?.lastName}
               </p>
-              <p className="text-xs text-gray-500 dark:text-gray-400">
+              <p className="text-xs font-mono opacity-70">
                 Last Sign In:{' '}
                 {user?.lastSignInAt
                   ? new Date(user.lastSignInAt).toLocaleDateString()
