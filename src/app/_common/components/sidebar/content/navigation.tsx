@@ -1,11 +1,6 @@
 'use client'
 
-import {
-  FileText,
-  HomeIcon,
-  SquareDashedMousePointer,
-  Workflow,
-} from 'lucide-react'
+import { HomeIcon, Paintbrush } from 'lucide-react'
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
 import {
@@ -23,19 +18,9 @@ const navigationItems = [
     href: '/app/dashboard',
   },
   {
-    icon: SquareDashedMousePointer,
-    label: 'Node Builder',
-    href: '/app/node-builder',
-  },
-  {
-    icon: Workflow,
-    label: 'Workflows',
-    href: '/app/workflows',
-  },
-  {
-    icon: FileText,
-    label: 'Quotes',
-    href: '/app/quotes',
+    icon: Paintbrush,
+    label: 'Make Art',
+    href: '/app/art',
   },
 ] as const
 

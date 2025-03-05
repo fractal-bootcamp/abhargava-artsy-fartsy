@@ -44,17 +44,6 @@ export default async function Home() {
           </DropdownMenuContent>
         </DropdownMenu>
       </div>
-      <div className="flex flex-col items-center justify-center h-screen">
-        <div className="flex flex-col items-center gap-4 py-8 px-6 border w-full max-w-2xl mx-auto justify-center rounded-none dark:border-gray-800 dark:bg-gray-900">
-          <h1 className="text-4xl font-bold text-center dark:text-white">
-            Keepsake
-          </h1>
-          <p className="text-lg text-center dark:text-gray-300">
-            If you want to store a memory when you're logged out, you're NGMI.
-            🫵😂
-          </p>
-        </div>
-      </div>
     </div>
   )
 }

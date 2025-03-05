@@ -6,11 +6,10 @@ import {
   SidebarGroupLabel,
   SidebarHeader,
   SidebarSeparator,
-  useSidebar,
 } from '~/components/ui/sidebar'
 import { Navigation } from './sidebar/content/navigation'
-import { QuoteMenu } from './sidebar/content/quotes'
-import { WorkflowMenu } from './sidebar/content/workflows'
+
+import { ArtMenu } from './sidebar/content/workflows'
 import { SidebarUserFooter } from './sidebar/footer/user-footer'
 import { SidebarOrgSwitcher } from './sidebar/header/organization-switcher'
 
@@ -28,12 +27,8 @@ export function AppSidebar() {
       <SidebarContent>
         <Navigation />
         <SidebarGroup>
-          <SidebarGroupLabel>Workflows</SidebarGroupLabel>
-          <WorkflowMenu />
-        </SidebarGroup>
-        <SidebarGroup>
-          <SidebarGroupLabel>Quotes</SidebarGroupLabel>
-          <QuoteMenu />
+          <SidebarGroupLabel>Art</SidebarGroupLabel>
+          <ArtMenu />
         </SidebarGroup>
       </SidebarContent>
       <SidebarSeparator />
